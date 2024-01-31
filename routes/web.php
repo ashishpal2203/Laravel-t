@@ -22,5 +22,5 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::post("/register-form",[RegisterController::class, 'registerForm']);
+Route::post("/dashboard",[RegisterController::class, 'registerForm']);
 

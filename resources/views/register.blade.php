@@ -9,7 +9,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url("/register-form") }}">
+                    <form method="POST" action="{{ url("/dashboard") }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -45,13 +45,12 @@
 
                             <div class="col-md-6">
                                 <select class="form-select" aria-label="Default select example" id="education" name="education" required>
-                                    <option value="" {{ old('education') == '' ? 'selected' : '' }}>Select your education level</option>
-                                    <option value="primary" {{ old('education') == 'primary' ? 'selected' : '' }}>Primary</option>
-                                    <option value="secondary" {{ old('education') == 'secondary' ? 'selected' : '' }}>Secondary</option>
-                                    <option value="matric" {{ old('education') == 'matric' ? 'selected' : '' }}>Matric</option>
-                                    <option value="graduation" {{ old('education') == 'graduation' ? 'selected' : '' }}>Graduation</option>
+                                    <option value="" {{ old('education') === null ? 'selected' : '' }}>Select your education level</option>
+                                    <option value="primary" {{ old('education') === 'primary' ? 'selected' : '' }}>Primary</option>
+                                    <option value="secondary" {{ old('education') === 'secondary' ? 'selected' : '' }}>Secondary</option>
+                                    <option value="matric" {{ old('education') === 'matric' ? 'selected' : '' }}>Matric</option>
+                                    <option value="graduation" {{ old('education') === 'graduation' ? 'selected' : '' }}>Graduation</option>
                                 </select>
-
 
                                 @error('education')
                                     <span class="invalid-feedback" role="alert">
@@ -60,6 +59,7 @@
                                 @enderror
                             </div>
                         </div>
+
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
@@ -89,16 +89,10 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4 text-end">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
