@@ -44,12 +44,12 @@
                             <label for="education" class="col-md-4 col-form-label text-md-end">{{ __('education') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-select" aria-label="Default select example" id="education" name="education">
-                                    <option value="" selected>Select your education level</option>
-                                    <option value="primary">Primary</option>
-                                    <option value="secondary">Secondary</option>
-                                    <option value="matric">Matric</option>
-                                    <option value="graduation">Graduation</option>
+                                <select class="form-select" aria-label="Default select example" id="education" name="education" required>
+                                    <option value="" {{ old('education') == '' ? 'selected' : '' }}>Select your education level</option>
+                                    <option value="primary" {{ old('education') == 'primary' ? 'selected' : '' }}>Primary</option>
+                                    <option value="secondary" {{ old('education') == 'secondary' ? 'selected' : '' }}>Secondary</option>
+                                    <option value="matric" {{ old('education') == 'matric' ? 'selected' : '' }}>Matric</option>
+                                    <option value="graduation" {{ old('education') == 'graduation' ? 'selected' : '' }}>Graduation</option>
                                 </select>
 
 
